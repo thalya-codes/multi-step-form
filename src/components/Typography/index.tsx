@@ -7,7 +7,8 @@ export default function Typography({
     color, 
     weight = "extralight",
     size = "sm", 
-    children
+    children,
+    className = ""
 }: PropsWithChildren<ITypographyProps>) {
     const sizes = {
         xs: "text-sm",
@@ -28,6 +29,7 @@ export default function Typography({
             ${color !== undefined ? colors[color] : ""}
             ${weight === "bold" ? "font-bold" : "font-extralight"}
             ${sizes[size]}
+            ${className}
         `}
         >
             {children}

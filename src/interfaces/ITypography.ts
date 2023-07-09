@@ -8,4 +8,5 @@ export default interface ITypographyProps {
     weight?: "extralight" | "bold";
     size?: TTypographySizes;
     htmlFor?: string;
+    className?: string;
 }
