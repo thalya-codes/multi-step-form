@@ -2,7 +2,7 @@ import { FormGroup } from "../FormGroup";
 import { WzStepContentHeader } from "../WzStepContentHeader";
 
 export function StepPersonalInfos({ activeStep }: { activeStep: number }) {
-  return (
+   return (
     <div className="w-[70vw]">
       <WzStepContentHeader
         title="Vamos começar com seu nome"
@@ -13,6 +13,7 @@ export function StepPersonalInfos({ activeStep }: { activeStep: number }) {
         label="Seu nome completo"
         placeholder="Digite aqui o seu nome completo"
         inputId="form-group--fullname"
+        fieldName="fullname"
       />
     </div>
   );
