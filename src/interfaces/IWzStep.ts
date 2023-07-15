@@ -1,13 +1,17 @@
 import { Dispatch, SetStateAction } from "react";
 
-export interface WzStep {
+export interface IWzStep {
     title: string;
     subTitle: string;
     stepNumber: number;
     icon: any;
-    isActive: boolean;
 };
 
-export interface IWzStepProps extends WzStep {
+export interface IWzStepProps extends IWzStep {
+    isActive: boolean;
     setActiveStep: Dispatch<SetStateAction<number>>;
 };
+
+export interface IWzStepData extends IWzStep {
+    content: any;
+}
