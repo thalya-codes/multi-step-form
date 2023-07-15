@@ -9,6 +9,10 @@ module.exports = {
     extend: {
       boxShadow: {
         "xl": "3px -1px 34px -3px",
+      },
+      backgroundColor: {
+        "main-blue": "#1A1A5A",
+        "secondary-blue": "#2A2A64"
       }
     }
   }
