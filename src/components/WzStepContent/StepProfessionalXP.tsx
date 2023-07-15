@@ -1,25 +1,22 @@
+import { useFormContext } from "../../context/FormContext";
 import HeadingGroup from "../HeadingGroup";
 import Typography from "../Typography";
 import { WzStepContentHeader } from "../WzStepContentHeader";
 
 export function StepProfessionalXP({ activeStep }: { activeStep: number }) {
-  const developerInfos = {
-    name: "Thalya",
-    xp: "beginner",
-    updateDevelopeInfos(newValue: object) {}
-  }
+  const { formValues, setFormValues }  = useFormContext();
 
   return (
     <div className="w-[70vw]">
       <WzStepContentHeader
-        title={`${developerInfos.name}, o que melhor descreve você?`}
+        title={`${formValues.fullname}, o que melhor descreve você?`}
         subTitle=" Escolha a opção que melhor condiz com seu estado atual, profissionalmente"
         activeStep={activeStep}
       />
 
       <div  
-        className={`flex gap-5 border-2 ${developerInfos.xp === "beginner" ? "border-emerald-500" : "border-zinc-500" } bg-main-blue rounded-md p-5 mb-5`}
-        onClick={() => developerInfos.updateDevelopeInfos({...developerInfos, xp: "beginner"})}
+        className={`flex gap-5 border-2 ${formValues.xp === "beginner" ? "border-emerald-500" : "border-zinc-500" } bg-main-blue rounded-md p-5 mb-5`}
+        onClick={() => setFormValues({...formValues, xp: "beginner"})}
       >
         <Typography 
           as="span" 
@@ -30,8 +27,8 @@ export function StepProfessionalXP({ activeStep }: { activeStep: number }) {
       </div>
 
       <div
-        className={`flex gap-5 border-2 border-emerald-500 bg-main-blue rounded-md p-5 ${developerInfos.xp === "programmer" ? "border-emerald-500" : "border-zinc-500" }`}
-        onClick={() => developerInfos.updateDevelopeInfos({...developerInfos, xp: "programmer"})}
+        className={`flex gap-5 border-2 border-emerald-500 bg-main-blue rounded-md p-5 ${formValues.xp === "programmer" ? "border-emerald-500" : "border-zinc-500" }`}
+        onClick={() => setFormValues({...formValues, xp: "programmer"})}
       >
         <Typography 
           as="span" 

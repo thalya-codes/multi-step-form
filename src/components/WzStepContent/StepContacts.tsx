@@ -1,10 +1,11 @@
+import { useFormContext } from "../../context/FormContext";
 import { FormGroup } from "../FormGroup";
 import { WzStepContentHeader } from "../WzStepContentHeader";
 
 export function StepContacts({ activeStep }: { activeStep: number }) {
-  const fullname = "Thalya";
+  const { formValues: { fullname } } = useFormContext();
 
-  return (
+   return (
     <div className="w-[70vw]">
       <WzStepContentHeader
         title={`Legal ${fullname}, onde te achamos?`}
@@ -18,10 +19,12 @@ export function StepContacts({ activeStep }: { activeStep: number }) {
           placeholder="email@email.com"
           inputId="form-group--email"
           inputType="email"
+          fieldName="email"
         />
         <FormGroup
           label="Qual seu GitHub?"
           inputId="form-group--github"
+          fieldName="github"
         />
       </div>
     </div>
