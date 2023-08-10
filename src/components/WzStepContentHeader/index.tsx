@@ -1,8 +1,11 @@
+import { useFormContext } from "../../context/FormContext";
 import { IWzStepContentHeaderProps } from "../../interfaces/IWzStepContentHeader";
 import HeadingGroup from "../HeadingGroup";
 import Typography from "../Typography";
 
-export function WzStepContentHeader({ title, subTitle, activeStep }: IWzStepContentHeaderProps) {
+export function WzStepContentHeader({ title, subTitle }: IWzStepContentHeaderProps) {
+  const { activeStep } = useFormContext();
+
   return (
     <div className="flex flex-col gap-5">
       <Typography as="span" color="secondary" size="xs">Passo {activeStep}/4</Typography>
