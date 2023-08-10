@@ -1,17 +1,16 @@
 import { useFormContext } from "../../context/FormContext";
 import HeadingGroup from "../HeadingGroup";
 import Typography from "../Typography";
-import { WzStepContentHeader } from "../WzStepContentHeader";
+import  { WzStepContentHeader } from "../WzStepContentHeader";
 
-export function StepProfessionalXP({ activeStep }: { activeStep: number }) {
+export function StepProfessionalXP() {
   const { formValues, setFormValues }  = useFormContext();
-
+  
   return (
     <div className="w-[70vw]">
       <WzStepContentHeader
         title={`${formValues.fullname}, o que melhor descreve você?`}
         subTitle=" Escolha a opção que melhor condiz com seu estado atual, profissionalmente"
-        activeStep={activeStep}
       />
 
       <div  
