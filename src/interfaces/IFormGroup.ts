@@ -5,5 +5,5 @@ export interface IFormGroupProps {
     inputType?: "text" | "email" | "radio";
     inputId: string;
     placeholder?: string;
-    fieldName: TFormFields;
+    name: TFormFields;
 }

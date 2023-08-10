@@ -8,8 +8,7 @@ export interface IWzStep {
 };
 
 export interface IWzStepProps extends IWzStep {
-    isActive: boolean;
-    setActiveStep: Dispatch<SetStateAction<number>>;
+    handleNextStep: (stepNumber: number) => void;
 };
 
 export interface IWzStepData extends IWzStep {
