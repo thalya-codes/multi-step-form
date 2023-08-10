@@ -1,18 +1,26 @@
 import HeadingGroup from "../HeadingGroup";
 import { IWzStepProps } from "../../interfaces/IWzStep";
+import { useFormContext } from "../../context/FormContext";
 
 export function WzStep({
   title,
   subTitle,
   stepNumber,
   icon,
-  isActive,
-  setActiveStep,
+  handleNextStep,
 }: IWzStepProps) {
+  const { activeStep, setActiveStep } = useFormContext();
+  const isActive = activeStep === stepNumber;
+
+  const handleStepClick = (): void => {
+    if (stepNumber > activeStep) handleNextStep(stepNumber);
+    else setActiveStep(stepNumber);
+  }
+
   return (
     <div
       className="flex gap-8 justify-end text-end"
-      onClick={() => setActiveStep(stepNumber)}
+      onClick={handleStepClick}
     >
       <HeadingGroup 
         title={{as: "h3", size: "sm", text: title}}
