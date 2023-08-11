@@ -19,8 +19,8 @@ export function WzStep({
 
   return (
     <div
-      className="flex gap-8 justify-end text-end"
-      onClick={handleStepClick}
+    className="flex items-center gap-8 justify-end text-end md:text-center md:flex-col-reverse md:gap-4"
+    onClick={handleStepClick}
     >
       <HeadingGroup 
         title={{as: "h3", size: "sm", text: title}}

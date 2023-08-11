@@ -38,11 +38,11 @@ export function Wizard({ steps }: IWizardProps) {
     };
 
     return (
-        <div className="flex gap-12">
+        <div className="flex gap-12 justify-center md:flex-col md:gap-6 md:mb-7">
             <aside>
                 <ul className="flex flex-col gap-8">
                     {steps.map(({ icon, stepNumber, subTitle, title }: IWzStepData) => (
-                        <li key={title}>
+                        <li key={title} className={`${activeStep !== stepNumber ? "md:hidden" : ""}`}>
                             <WzStep 
                                 title={title} 
                                 subTitle={subTitle} 
@@ -55,10 +55,10 @@ export function Wizard({ steps }: IWizardProps) {
                 </ul>
             </aside>
 
-            <div className="flex flex-col min-h-[35vw] justify-between">
+            <div className="flex flex-col gap-12 md:mb-7">
                 {<StepContent activeStep={activeStep}/>}
 
-                <div>
+                <div className="flex gap-4 md:flex-col">
                     <Button onClickFunc={handlePrevStep} disabled={activeStep === 1}>Voltar</Button>
 
                     {

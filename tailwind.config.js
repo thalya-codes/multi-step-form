@@ -13,6 +13,9 @@ module.exports = {
       backgroundColor: {
         "main-blue": "#1A1A5A",
         "secondary-blue": "#2A2A64"
+      },
+      screens: {
+        "md": { "max": "800px" }
       }
     }
   }

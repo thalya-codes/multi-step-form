@@ -33,18 +33,18 @@ export function FormGroup({ label, inputType = "text", inputId, placeholder, nam
   }, [hadBlur, formValues]);
 
   return (
-    <div className="flex flex-col gap-2 w-full">
+    <div className="flex flex-col gap-2 w-10/12 md:w-full">
       <Typography as="label" htmlFor={inputId}>{label}</Typography>
      
-     <input
-        type={inputType}
-        name={name}
-        className="pl-3 h-12 border-2 border-emerald-500 outline-none bg-main-blue rounded-md"
-        placeholder={placeholder}
-        value={formValues[name]}
-        onChange={({ target }) => handleOnChange(target.value)}
-        onBlur={handleOnBlur}
-      />
+      <input
+          type={inputType}
+          name={name}
+          className="pl-3 h-12 border-2 border-emerald-500 outline-none bg-main-blue rounded-md"
+          placeholder={placeholder}
+          value={formValues[name]}
+          onChange={({ target }) => handleOnChange(target.value)}
+          onBlur={handleOnBlur}
+        />
       { (!fieldNameIsXp && errors[name]) && <span className="text-red-700">{ errors[name] }</span> }      
     </div>
   );
