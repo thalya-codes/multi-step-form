@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import "./index.css"
+import "./global/index.scss";
 import { FormProvider } from './context/FormContext';
 
 const root = ReactDOM.createRoot(
