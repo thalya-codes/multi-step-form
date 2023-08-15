@@ -7,6 +7,7 @@ import { ReactSVG } from "react-svg"
 import ProfileIcon from "./assets/profile.svg";
 import BookIcon from "./assets/book.svg";
 import EmailIcon from "./assets/mail.svg";
+import HeadingGroup from "./components/HeadingGroup";
 
 function App() {
   const steps: IWzStepData[] = [
@@ -16,9 +17,18 @@ function App() {
   ];
 
   return (
-    <form className="w-screen h-screen justify-center items-center flex gap-10 mt-14">
-      <Wizard steps={steps} />
-    </form>
+    <div className="flex flex-col gap-24 w-11/12 mt-5">
+      <header>
+        <HeadingGroup 
+          title={{as: "h1", size: "lg", text: "Cadastro de Desenvolvedor"}}
+          subTitle={{as: "h2", text: "Faça seu cadastro na lista e receba um emprego instantaneamente"}}
+        />    
+      </header>
+      
+      <form className="w-[90vw] justify-center items-center flex gap-10 md:w-[80vw]">
+        <Wizard steps={steps} />
+      </form>
+    </div>
   );
 }
 
