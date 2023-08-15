@@ -3,7 +3,7 @@ import  {WzStepContentHeader}  from "../WzStepContentHeader";
 
 export function StepPersonalInfos() {
   return (
-    <div className="w-[70vw]">
+    <div className="w-full">
       <WzStepContentHeader
         title="Vamos começar com seu nome"
         subTitle="Preecha o campo abaixo com seu nome completo"

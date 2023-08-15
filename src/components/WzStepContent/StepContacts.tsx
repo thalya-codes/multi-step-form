@@ -6,7 +6,7 @@ export function StepContacts() {
   const { formValues: { fullname } } = useFormContext();
 
    return (
-    <div className="w-[70vw]">
+    <div className="w-full">
       <WzStepContentHeader
         title={`Legal ${fullname}, onde te achamos?`}
         subTitle="Preencha com seus contados para conseguirmos entrar em contato"

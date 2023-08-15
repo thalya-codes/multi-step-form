@@ -7,14 +7,14 @@ export function StepProfessionalXP() {
   const { formValues, setFormValues }  = useFormContext();
   
   return (
-    <div className="w-[70vw]">
+    <div className="w-full">
       <WzStepContentHeader
         title={`${formValues.fullname}, o que melhor descreve você?`}
         subTitle=" Escolha a opção que melhor condiz com seu estado atual, profissionalmente"
       />
 
       <div  
-        className={`flex gap-5 border-2 ${formValues.xp === "beginner" ? "border-emerald-500" : "border-zinc-500" } bg-main-blue rounded-md p-5 mb-5`}
+        className={`flex gap-5 w-10/12 border-2 ${formValues.xp === "beginner" ? "border-emerald-500" : "border-zinc-500" } bg-main-blue rounded-md p-5 mb-5 md:w-full`}
         onClick={() => setFormValues({...formValues, xp: "beginner"})}
       >
         <Typography 
@@ -26,7 +26,7 @@ export function StepProfessionalXP() {
       </div>
 
       <div
-        className={`flex gap-5 border-2 border-emerald-500 bg-main-blue rounded-md p-5 ${formValues.xp === "programmer" ? "border-emerald-500" : "border-zinc-500" }`}
+        className={`flex gap-5 w-10/12 border-2 border-emerald-500 bg-main-blue rounded-md p-5 ${formValues.xp === "programmer" ? "border-emerald-500" : "border-zinc-500" } md:w-full`}
         onClick={() => setFormValues({...formValues, xp: "programmer"})}
       >
         <Typography 

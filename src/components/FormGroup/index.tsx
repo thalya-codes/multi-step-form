@@ -45,7 +45,7 @@ export function FormGroup({ label, inputType = "text", inputId, placeholder, nam
           onChange={({ target }) => handleOnChange(target.value)}
           onBlur={handleOnBlur}
         />
-      { (!fieldNameIsXp && errors[name]) && <span className="text-red-700">{ errors[name] }</span> }      
+      { (!fieldNameIsXp && errors[name]) && <span className="text-red-300 font-semibold">{ errors[name] }</span> }      
     </div>
   );
 };

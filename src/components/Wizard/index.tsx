@@ -38,7 +38,7 @@ export function Wizard({ steps }: IWizardProps) {
     };
 
     return (
-        <div className="flex gap-12 justify-center md:flex-col md:gap-6 md:mb-7">
+        <div className="flex gap-12 w-11/12 min-h-[75vh] md:flex-col md:gap-6 md:mb-7">
             <aside>
                 <ul className="flex flex-col gap-8">
                     {steps.map(({ icon, stepNumber, subTitle, title }: IWzStepData) => (
@@ -55,7 +55,7 @@ export function Wizard({ steps }: IWizardProps) {
                 </ul>
             </aside>
 
-            <div className="flex flex-col gap-12 md:mb-7">
+            <div className="flex flex-col gap-12 md:mb-7 w-9/12 md:w-[75vw]">
                 {<StepContent activeStep={activeStep}/>}
 
                 <div className="flex gap-4 md:flex-col">
