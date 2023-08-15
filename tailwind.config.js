@@ -15,7 +15,7 @@ module.exports = {
         "secondary-blue": "#2A2A64"
       },
       screens: {
-        "md": { "max": "800px" }
+        "md": { "max": "890px" }
       }
     }
   }
