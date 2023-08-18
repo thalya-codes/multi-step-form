@@ -10,15 +10,16 @@ export default function Typography({
     children,
     className = ""
 }: PropsWithChildren<ITypographyProps>) {
-    const sizes = {
-        xs: "text-sm",
-        sm: "text-lg",
-        md: "text-3xl",
-        lg: "text-4xl"
+    enum Sizes {
+        xs = "text-sm",
+        sm = "text-lg",
+        md = "text-3xl",
+        lg = "text-4xl"
     };
-    const colors = {
-        secondary: "opacity-80",
-        danger: "text-red-500",
+    
+    enum Colors {
+        secondary = "opacity-80",
+        danger = "text-red-500",
     };
 
     return (
@@ -26,9 +27,9 @@ export default function Typography({
         {...htmlFor && {htmlFor: htmlFor}}
         className={`
             tracking-wide     
-            ${color !== undefined ? colors[color] : ""}
+            ${color ? Colors[color] : ""}
             ${weight === "bold" ? "font-bold" : "font-extralight"}
-            ${sizes[size]}
+            ${Sizes[size]}
             ${className}
         `}
         >
