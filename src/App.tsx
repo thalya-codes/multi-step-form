@@ -7,13 +7,16 @@ import { ReactSVG } from "react-svg"
 import ProfileIcon from "./assets/profile.svg";
 import BookIcon from "./assets/book.svg";
 import EmailIcon from "./assets/mail.svg";
+import CheckMark from "./assets/check-mark.svg";
 import HeadingGroup from "./components/HeadingGroup";
+import { StepSummary } from "./components/WzStepContent/StepSummary";
 
 function App() {
   const steps: IWzStepData[] = [
     {title: "Pessoal", subTitle: "Se identifique" , stepNumber: 1,  icon: <ReactSVG src={ProfileIcon}/>, content: StepPersonalInfos},
     {title: "Profissional", subTitle: "Seu nível" , stepNumber: 2,  icon: <ReactSVG src={BookIcon}/>, content: StepProfessionalXP},
-    {title: "Contatos", subTitle: "Como te achar" , stepNumber: 3,  icon: <ReactSVG src={EmailIcon}/>, content: StepContacts}
+    {title: "Contatos", subTitle: "Como te achar" , stepNumber: 3,  icon: <ReactSVG src={EmailIcon}/>, content: StepContacts},
+    {title: "Resumo", subTitle: "Confirme seus dados" , stepNumber: 4,  icon: <ReactSVG src={CheckMark}/>, content: StepSummary}
   ];
 
   return (
@@ -25,7 +28,7 @@ function App() {
         />    
       </header>
       
-      <form className="w-[90vw] justify-center items-center flex gap-10 md:w-[80vw]">
+      <form className="w-[90vw] justify-center items-center flex gap-10 md:w-[80vw] mb-10">
         <Wizard steps={steps} />
       </form>
     </div>
