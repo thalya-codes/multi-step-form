@@ -20,7 +20,7 @@ function App() {
     <div className="flex flex-col gap-24 w-11/12 mt-5">
       <header>
         <HeadingGroup 
-          title={{as: "h1", size: "lg", text: "Cadastro de Desenvolvedor"}}
+          title={{as: "h1", size: "xl", text: "Cadastro de Desenvolvedor"}}
           subTitle={{as: "h2", text: "Faça seu cadastro na lista e receba um emprego instantaneamente"}}
         />    
       </header>

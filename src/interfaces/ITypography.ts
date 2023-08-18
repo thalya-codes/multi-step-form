@@ -1,6 +1,6 @@
 import { THeadingTags } from "./IHeadingGroup";
 
-export type TTypographySizes = "xs" | "sm" | "md" | "lg";
+export type TTypographySizes = "xs" | "sm" | "md" | "lg" | "xl";
 
 export default interface ITypographyProps {    
     as: THeadingTags | "p" | "span" | "label";

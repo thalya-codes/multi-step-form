@@ -11,7 +11,7 @@ export function WzStepContentHeader({ title, subTitle }: IWzStepContentHeaderPro
       <Typography as="span" color="secondary" size="xs">Passo {activeStep}/4</Typography>
 
       <HeadingGroup 
-        title={{as: "h3", size: "md", text: title}} 
+        title={{as: "h3", size: "lg", text: title}} 
         subTitle={{as: "h4", text: subTitle}}
       />
       <hr className="border-spacing-px opacity-20 mt-2 mb-8 w-10/12 md:w-[93%]"/>
