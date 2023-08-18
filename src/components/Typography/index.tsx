@@ -13,8 +13,8 @@ export default function Typography({
     enum Sizes {
         xs = "text-sm",
         sm = "text-lg",
-        md = "text-3xl",
-        lg = "text-4xl"
+        md = "text-xl",
+        lg = "text-3xl",
     };
     
     enum Colors {
