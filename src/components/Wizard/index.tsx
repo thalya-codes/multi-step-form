@@ -15,17 +15,17 @@ export function Wizard({ steps }: IWizardProps) {
         3: ['email', 'github']  
     };
 
-    const handleNextStep = (stepNumber?: number): void => {
+    const handleNextStep = (): void => {
         const names: TFieldNamesToValidate | TFieldNamesToValidate[] = fieldNamesByStep[activeStep];
         let fieldIsValid: boolean | null = null;
-
+        
         if (Array.isArray(names)) {
-            fieldIsValid = names.map(name => validateField({ name, value: formValues[name]})).every((isValid: boolean) => isValid);
+            fieldIsValid = names.map(name => validateField({ name, value: formValues[name] })).every((isValid: boolean) => isValid);
         }
 
         else fieldIsValid = validateField({ name: names, value: formValues[names] });
 
-        if (fieldIsValid && activeStep <= 3) setActiveStep(stepNumber || activeStep + 1);
+        if (fieldIsValid && activeStep <= 3) setActiveStep(activeStep + 1);
     }
 
     const handlePrevStep = (): void => {
@@ -48,7 +48,7 @@ export function Wizard({ steps }: IWizardProps) {
                                 subTitle={subTitle} 
                                 icon={icon} 
                                 stepNumber={stepNumber} 
-                                handleNextStep={handleNextStep}
+                                fieldNamesByStep={fieldNamesByStep}
                             />
                         </li>                    
                     ))}

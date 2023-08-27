@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IFormErrors, IValidateFieldParams } from "../interfaces/IUseValidation";
+import { IFormErrors, IValidateFieldParams, IValidatePrevStepsParams, TFieldNamesToValidate } from "../interfaces/IUseValidation";
 import { initialValues } from "../context/initialValues";
 
 enum ErrorsMgs {  
@@ -34,7 +34,16 @@ export function useValidation() {
     setErrors((prevErrors) => ({ ...prevErrors, [name]: !isValid ? errorMessage : "" }));
 
     return isValid;     
+  }; 
+
+  const validatePrevSteps = ({ stepNumber, fieldNamesByStep, formValues }: IValidatePrevStepsParams): boolean | null => {
+    let isValid = validateField({ name: 'fullname', value: formValues['fullname'] });
+    const step3FieldNames = fieldNamesByStep[3] as TFieldNamesToValidate[];
+
+    if (stepNumber === 4) isValid = step3FieldNames.map(name => validateField({ name, value: formValues[name] })).every(isValid => isValid);
+      
+    return isValid || null;
   };
 
-  return { validateField, errors };
+  return { validateField, errors, validatePrevSteps };
 };

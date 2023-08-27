@@ -7,15 +7,21 @@ export function WzStep({
   subTitle,
   stepNumber,
   icon,
-  handleNextStep,
+  fieldNamesByStep
 }: IWzStepProps) {
-  const { activeStep, setActiveStep } = useFormContext();
+  const { activeStep, setActiveStep, formValues, validatePrevSteps } = useFormContext();
   const isActive = activeStep === stepNumber;
 
   const handleStepClick = (): void => {
-    if (stepNumber > activeStep) handleNextStep(stepNumber);
-    else setActiveStep(stepNumber);
-  }
+    const prevFieldsAreValid: boolean | null = validatePrevSteps({ stepNumber, fieldNamesByStep, formValues });
+    const jumpToPrevStep: boolean = stepNumber < activeStep;
+
+    if (jumpToPrevStep) setActiveStep(stepNumber);
+
+    else if (!prevFieldsAreValid) return;
+
+    setActiveStep(stepNumber);
+  };
 
   return (
     <div
