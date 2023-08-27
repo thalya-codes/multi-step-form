@@ -1,7 +1,7 @@
 import {PropsWithChildren} from "react";
 import IPropsButton from "../../interfaces/IPropsButton";
 
-export default function Button({ children, onClickFunc, hasBackground = false, disabled = false, type = "button" }: PropsWithChildren<IPropsButton>) {
+export default function Button({ children, onClickFunc, hasBackground = false, disabled = false, type = "button", className = '' }: PropsWithChildren<IPropsButton>) {
 
     return (
         <button 
@@ -12,6 +12,7 @@ export default function Button({ children, onClickFunc, hasBackground = false, d
             focus:shadow-xl focus:shadow-emerald-500            
             ${hasBackground ? `transition-all hover:bg-emerald-600 bg-emerald-500 disabled:bg-slate-400 disabled:hover:bg-slate-400`: `text-lg hover:opacity-80 text-center disabled:text-slate-400`}
             disabled:cursor-not-allowed
+            ${className}
          `}
          onClick={() => onClickFunc()}
          disabled={disabled}
