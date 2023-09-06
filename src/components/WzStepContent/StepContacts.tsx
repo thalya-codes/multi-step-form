@@ -3,12 +3,12 @@ import { FormGroup } from "../FormGroup";
 import { WzStepContentHeader } from "../WzStepContentHeader";
 
 export function StepContacts() {
-  const { formValues: { fullname } } = useFormContext();
+  const { firstName } = useFormContext();
 
    return (
     <div className="w-full">
       <WzStepContentHeader
-        title={`Legal ${fullname}, onde te achamos?`}
+        title={`Legal ${firstName}, onde te achamos?`}
         subTitle="Preencha com seus contados para conseguirmos entrar em contato"
       />
 

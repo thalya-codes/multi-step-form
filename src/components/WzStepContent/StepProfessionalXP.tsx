@@ -4,12 +4,12 @@ import Typography from "../Typography";
 import  { WzStepContentHeader } from "../WzStepContentHeader";
 
 export function StepProfessionalXP() {
-  const { formValues, setFormValues }  = useFormContext();
+  const { firstName, formValues, setFormValues }  = useFormContext();
   
   return (
     <div className="w-full">
       <WzStepContentHeader
-        title={`${formValues.fullname}, o que melhor descreve você?`}
+        title={`${firstName}, o que melhor descreve você?`}
         subTitle=" Escolha a opção que melhor condiz com seu estado atual, profissionalmente"
       />
 
