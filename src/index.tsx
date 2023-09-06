@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import "./global/index.scss";
 import { FormProvider } from './context/FormContext';
-import { Router } from './router/Router';
+import { Router } from './router';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
