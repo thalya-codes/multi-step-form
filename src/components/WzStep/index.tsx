@@ -66,7 +66,7 @@ export function WzStep({
         subTitle={{as: "h4", text: subTitle}}            
       />     
 
-      <div className={`flex justify-center items-center ${StepStatusClasses[stepStatus]}  rounded-full w-16 h-16`}>
+      <div className={`flex justify-center items-center ${StepStatusClasses[stepStatus]} rounded-full w-16 h-16 p-4`}>
         <i className="w-8 fill-white">{icon}</i>
       </div>
     </div>
