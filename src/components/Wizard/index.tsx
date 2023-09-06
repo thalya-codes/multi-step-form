@@ -5,10 +5,13 @@ import { IWzStepData } from "../../interfaces/IWzStep";
 import { useFormContext } from "../../context/FormContext";
 import { TFieldNamesToValidate } from "../../interfaces/IUseValidation";
 import { IFieldNamesByStep } from "../../interfaces/IFieldNamesByStep";
+import confetti from "canvas-confetti";
+import { useNavigate } from "react-router-dom";
 
 export function Wizard({ steps }: IWizardProps) {
-    const { formValues, activeStep, setActiveStep, validateField } = useFormContext();
+    const { formValues, activeStep, setActiveStep, validateField, errors } = useFormContext();
     const StepContent = steps[activeStep - 1].content;
+    const navigate = useNavigate();
     
     const fieldNamesByStep: IFieldNamesByStep = {
         1: 'fullname',
@@ -34,7 +37,8 @@ export function Wizard({ steps }: IWizardProps) {
     };
 
     const completeRegister = (): void => {
-        console.log('completeRegister')
+        confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 } });
+        navigate("/completed-registration");
     };
 
     return (
