@@ -10,9 +10,10 @@ export function FormProvider({ children }: IFormContextProviderProp) {
     const [formValues, setFormValues] = useState<IFormFields>(initialValues.values);
     const [activeStep, setActiveStep] = useState(initialValues.activeStep);
     const { errors, validateField, validatePrevSteps } = useValidation();    
-   
+    const firstName = formValues.fullname.split(' ')[0];
+
     return (
-        <FormContext.Provider value={{ formValues, setFormValues, activeStep, setActiveStep, validateField, errors, validatePrevSteps }}>
+        <FormContext.Provider value={{ formValues, setFormValues, activeStep, setActiveStep, validateField, errors, validatePrevSteps, firstName }}>
             {children}
         </FormContext.Provider>
     )

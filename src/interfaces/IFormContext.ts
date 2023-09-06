@@ -4,6 +4,7 @@ import { IFormErrors, IValidateFieldParams, IValidatePrevStepsParams } from "./I
 
 export interface IFormContext {
     formValues: IFormFields;
+    firstName: string;
     errors: IFormErrors;
     activeStep: number;
     setFormValues: Dispatch<SetStateAction<IFormFields>>;
