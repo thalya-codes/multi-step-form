@@ -1,6 +1,14 @@
 import HeadingGroup from "../HeadingGroup";
 import { IWzStepProps } from "../../interfaces/IWzStep";
 import { useFormContext } from "../../context/FormContext";
+import { useEffect, useState } from 'react';
+import { TFieldNamesToValidate } from "../../interfaces/IUseValidation";
+
+enum StepStatusClasses {
+  active = "bg-emerald-400",
+  invalid = "bg-red-400",
+  default = "bg-slate-600"
+};
 
 export function WzStep({
   title,
@@ -9,8 +17,9 @@ export function WzStep({
   icon,
   fieldNamesByStep
 }: IWzStepProps) {
-  const { activeStep, setActiveStep, formValues, validatePrevSteps } = useFormContext();
-  const isActive = activeStep === stepNumber;
+  const { activeStep, setActiveStep, formValues, validatePrevSteps, errors } = useFormContext();
+  const [stepStatus, setStepStatus] = useState<'active' | 'default' | 'invalid'>('default');
+  const [fieldsNameWithError, setFieldsNameWithError] = useState([] as TFieldNamesToValidate[]);
 
   const handleStepClick = (): void => {
     const prevFieldsAreValid: boolean | null = validatePrevSteps({ stepNumber, fieldNamesByStep, formValues });
@@ -23,6 +32,30 @@ export function WzStep({
     setActiveStep(stepNumber);
   };
 
+  const defineStepStatus = (): void => {
+    const hasError = (stepNumber === 1 &&  fieldsNameWithError.find(field => field === "fullname")) || stepNumber === 3 &&  fieldsNameWithError.find(field => (field === "github" || "email"));
+    const isActive: boolean = activeStep === stepNumber && !hasError;
+
+    if (hasError) { setStepStatus("invalid"); return };
+
+    if (isActive) { setStepStatus("active"); return };
+   
+    setStepStatus("default");
+  };
+
+  useEffect(() => {
+    const fieldsWithError: TFieldNamesToValidate[] = Object.entries(errors).flatMap(([key, value]) => {
+      if (value !== '' && value !== null) return key;
+      else return null
+    }).filter(key => key !== null) as TFieldNamesToValidate[];
+
+    setFieldsNameWithError(fieldsWithError);
+  }, [errors])
+
+  useEffect(() => {
+    defineStepStatus();
+  }, [activeStep, errors, fieldsNameWithError]);
+
   return (
     <div
       className="flex items-center gap-8 justify-end text-end md:text-center md:flex-col-reverse md:gap-4 md:w-[80vw]"
@@ -33,7 +66,7 @@ export function WzStep({
         subTitle={{as: "h4", text: subTitle}}            
       />     
 
-      <div className={`flex justify-center items-center ${isActive ? "bg-emerald-400" : "bg-slate-600"} rounded-full w-16 h-16`}>
+      <div className={`flex justify-center items-center ${StepStatusClasses[stepStatus]}  rounded-full w-16 h-16`}>
         <i className="w-8 fill-white">{icon}</i>
       </div>
     </div>
