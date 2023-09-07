@@ -33,7 +33,7 @@ export function WzStep({
   };
 
   const defineStepStatus = (): void => {
-    const hasError: boolean = (stepNumber === 1 &&  fieldsNameWithError.some(field => field === "fullname")) || stepNumber === 3 &&  fieldsNameWithError.some(field => (field === "github" || field === "email"));
+    const hasError: boolean = ((stepNumber === 1 &&  fieldsNameWithError.some(field => field === "fullname"))) || (stepNumber === 3 &&  fieldsNameWithError.some(field => (field === "github" || field === "email")));
     const isActive: boolean = activeStep === stepNumber && !hasError;
 
     if (hasError) { setStepStatus("invalid"); return };

@@ -9,7 +9,7 @@ import confetti from "canvas-confetti";
 import { useNavigate } from "react-router-dom";
 
 export function Wizard({ steps }: IWizardProps) {
-    const { formValues, activeStep, setActiveStep, validateField, errors } = useFormContext();
+    const { formValues, activeStep, setActiveStep, validateField } = useFormContext();
     const StepContent = steps[activeStep - 1].content;
     const navigate = useNavigate();
     
