@@ -1,27 +1,29 @@
 import { useFormContext } from "../../context/FormContext";
 import { FormGroup } from "../FormGroup";
 import { WzStepContentHeader } from "../WzStepContentHeader";
+import { useTranslation } from "react-i18next";
 
 export function StepContacts() {
   const { firstName } = useFormContext();
+  const { t: translation } = useTranslation();
 
    return (
     <div className="w-full">
       <WzStepContentHeader
-        title={`Legal ${firstName}, onde te achamos?`}
-        subTitle="Preencha com seus contados para conseguirmos entrar em contato"
+        title={translation("Cool {{developerFirstName}}, where do we find you?", { developerFirstName: firstName })}
+        subTitle={translation("steps.Fill in the fields below with your contacts")}
       />
 
       <div className="flex flex-col gap-5">
         <FormGroup
-          label="Qual é seu e-mail?"
+          label={translation("steps.What is your email address?")}
           placeholder="email@email.com"
           inputId="form-group--email"
           inputType="email"
           name="email"
         />
         <FormGroup
-          label="Qual seu GitHub?"
+          label={translation("steps.What is your GitHub?")}
           inputId="form-group--github"
           name="github"
         />

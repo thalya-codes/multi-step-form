@@ -10,21 +10,24 @@ import EmailIcon from "../assets/mail.svg";
 import CheckMark from "../assets/check-mark.svg";
 import HeadingGroup from "../components/HeadingGroup";
 import { StepSummary } from "../components/WzStepContent/StepSummary";
+import { useTranslation } from "react-i18next";
 
 export default function Home() {
+  const { t: translation } = useTranslation();
+
   const steps: IWzStepData[] = [
-    {title: "Pessoal", subTitle: "Se identifique" , stepNumber: 1,  icon: <ReactSVG src={ProfileIcon}/>, content: StepPersonalInfos},
-    {title: "Profissional", subTitle: "Seu nível" , stepNumber: 2,  icon: <ReactSVG src={BookIcon}/>, content: StepProfessionalXP},
-    {title: "Contatos", subTitle: "Como te achar" , stepNumber: 3,  icon: <ReactSVG src={EmailIcon}/>, content: StepContacts},
-    {title: "Resumo", subTitle: "Confirme seus dados" , stepNumber: 4,  icon: <ReactSVG src={CheckMark}/>, content: StepSummary}
+    {title: translation('general.Personal'), subTitle: translation('general.Identify yourself') , stepNumber: 1,  icon: <ReactSVG src={ProfileIcon}/>, content: StepPersonalInfos},
+    {title: translation("general.Professional"), subTitle: translation("general.Your level"), stepNumber: 2,  icon: <ReactSVG src={BookIcon}/>, content: StepProfessionalXP},
+    {title: translation("general.Contacts"), subTitle: translation("general.How to find you") , stepNumber: 3,  icon: <ReactSVG src={EmailIcon}/>, content: StepContacts},
+    {title: translation("general.Summary"), subTitle: translation("general.Confirm your data") , stepNumber: 4,  icon: <ReactSVG src={CheckMark}/>, content: StepSummary}
   ];
 
   return (
     <div className="flex flex-col gap-24 w-11/12 mt-5">
       <header>
         <HeadingGroup 
-          title={{as: "h1", size: "xl", text: "Cadastro de Desenvolvedor"}}
-          subTitle={{as: "h2", text: "Faça seu cadastro na lista e receba um emprego instantaneamente"}}
+          title={{as: "h1", size: "xl", text: translation("general.Developer Registration")}}
+          subTitle={{as: "h2", text: translation("general.Register on the list and receive a job instantly")}}
         />    
       </header>
       

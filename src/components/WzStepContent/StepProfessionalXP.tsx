@@ -1,16 +1,18 @@
+import { useTranslation } from "react-i18next";
 import { useFormContext } from "../../context/FormContext";
 import HeadingGroup from "../HeadingGroup";
 import Typography from "../Typography";
 import  { WzStepContentHeader } from "../WzStepContentHeader";
 
 export function StepProfessionalXP() {
+  const { t: translation } = useTranslation();
   const { firstName, formValues, setFormValues }  = useFormContext();
-  
+
   return (
     <div className="w-full">
       <WzStepContentHeader
-        title={`${firstName}, o que melhor descreve você?`}
-        subTitle=" Escolha a opção que melhor condiz com seu estado atual, profissionalmente"
+        title={translation("steps.{{developerFirstName}}, what best describes you?", { developerFirstName: firstName })}
+        subTitle={translation("steps.Choose the option that best matches your current professional status")}
       />
 
       <div  
@@ -22,7 +24,10 @@ export function StepProfessionalXP() {
           className="flex justify-center items-center rounded-full bg-secondary-blue p-2 text-xl h-14 w-14"
         >🥳</Typography>
         
-        <HeadingGroup title={{as: "h5", size: "sm", text: "Sou iniciante"}} subTitle={{as: "h6", text: "Comecei a programar há menos de 2 anos"}} />
+        <HeadingGroup 
+          title={{as: "h5", size: "sm", text: translation("steps.I'm a beginner")}} 
+          subTitle={{as: "h6", text: translation("steps.I started programming less than 2 years ago")}} 
+        />
       </div>
 
       <div
@@ -35,8 +40,8 @@ export function StepProfessionalXP() {
         >😎</Typography>
         
         <HeadingGroup 
-          title={{as: "h5", text: "Sou programador", size:"sm"}}
-          subTitle={{as: "h6", text: "Já programo há 2 anos ou mais"}}
+          title={{as: "h5", text: translation("steps.I'm a programmer"), size:"sm"}}
+          subTitle={{as: "h6", text: translation("steps.I’ve been programming for 2 years or more")}}
         />
       </div>
     </div>

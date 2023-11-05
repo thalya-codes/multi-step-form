@@ -1,16 +1,18 @@
 import { useState } from "react";
 import { IFormErrors, IValidateFieldParams, IValidatePrevStepsParams, TFieldNamesToValidate } from "../interfaces/IUseValidation";
 import { initialValues } from "../context/initialValues";
-
-enum ErrorsMgs {  
-  fullname =  "Por favor, insira o seu nome completo",
-  email =  "Formato de email inválido!",
-  github =  "O endereço informado está incompleto ou não é do GitHub!",
-  emptyField =  "O campo não pode ficar vazio!"
-};
+import { useTranslation } from "react-i18next";
 
 export function useValidation() {
   const [errors, setErrors] = useState<IFormErrors>(initialValues.errors);
+  const { t: translation } = useTranslation();
+
+  const ErrorsMgs ={  
+    fullname: translation("steps.Please, enter your full name"),
+    email:  translation("steps.Email format is invalid!"),
+    github:  translation("steps.The given address is incomplete or not from GitHub!"),
+    emptyField:  translation("general.The field cannot be empty!")
+  };
 
   const validateField = ({ name, value }: IValidateFieldParams): boolean => {      
     const isEmpty: boolean = value === "";

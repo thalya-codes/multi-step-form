@@ -1,17 +1,20 @@
+import { useTranslation } from "react-i18next";
 import { FormGroup } from "../FormGroup";
 import  {WzStepContentHeader}  from "../WzStepContentHeader";
 
 export function StepPersonalInfos() {
+  const { t: translation } = useTranslation();
+
   return (
     <div className="w-full">
       <WzStepContentHeader
-        title="Vamos começar com seu nome"
-        subTitle="Preecha o campo abaixo com seu nome completo"
+        title={translation("steps.Let’s start with your name")}
+        subTitle={translation("steps.Fill in the field below with your full name")}
       />
       
       <FormGroup
-        label="Seu nome completo"
-        placeholder="Digite aqui o seu nome completo"
+        label={translation("steps.Your full name")}
+        placeholder={translation("steps.Fill in the field below with your full name")}
         inputId="form-group--fullname"
         name="fullname"
       />

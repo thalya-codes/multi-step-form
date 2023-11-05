@@ -7,9 +7,11 @@ import { TFieldNamesToValidate } from "../../interfaces/IUseValidation";
 import { IFieldNamesByStep } from "../../interfaces/IFieldNamesByStep";
 import confetti from "canvas-confetti";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export function Wizard({ steps }: IWizardProps) {
     const { formValues, activeStep, setActiveStep, validateField } = useFormContext();
+    const { t: translation } = useTranslation();
     const StepContent = steps[activeStep - 1].content;
     const navigate = useNavigate();
     
@@ -63,12 +65,23 @@ export function Wizard({ steps }: IWizardProps) {
                 {<StepContent activeStep={activeStep}/>}
 
                 <div className="flex gap-4 md:flex-col">
-                    <Button onClickFunc={handlePrevStep} disabled={activeStep === 1}>Voltar</Button>
+                    <Button onClickFunc={handlePrevStep} disabled={activeStep === 1}>
+                        {translation("general.Go Back")}
+                    </Button>
 
                     {
                         activeStep === 4 ? 
-                          <Button onClickFunc={completeRegister} hasBackground>Concluir cadastro</Button> //submit form
-                        : <Button onClickFunc={handleNextStep} disabled={activeStep === 4} hasBackground>Próximo</Button>
+                          <Button onClickFunc={completeRegister} hasBackground>
+                            {translation("general.Complete registration")}
+                          </Button> 
+                          
+                        : <Button 
+                            onClickFunc={handleNextStep} 
+                            disabled={activeStep === 4} 
+                            hasBackground
+                          >
+                            {translation("general.Next")}
+                          </Button>
                     }
                 </div>
             </div>

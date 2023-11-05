@@ -2,11 +2,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import CompletedRegistration from "../pages/CompletedRegistration";
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 export function Router() {
-    const [pageTitle, setPageTitle] = useState<string>("Cadastro de desenvolvedor");
+    const { t: translation } = useTranslation();
+    const [pageTitle, setPageTitle] = useState<string>(translation("general.Developer Registration"));
     
-    useEffect(() => { document.title = pageTitle }, [pageTitle]);
+    useEffect(() => { 
+        document.title = pageTitle;
+    }, [pageTitle]);
     
     return (
         <BrowserRouter>
