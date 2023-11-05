@@ -14,7 +14,7 @@ export function StepPersonalInfos() {
       
       <FormGroup
         label={translation("steps.Your full name")}
-        placeholder={translation("steps.Fill in the field below with your full name")}
+        placeholder={translation("steps.Your full name")}
         inputId="form-group--fullname"
         name="fullname"
       />

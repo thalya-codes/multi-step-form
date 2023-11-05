@@ -17,7 +17,7 @@
         "Complete registration": "Complete registration",
         "The field cannot be empty!": "The field cannot be empty!",
         "Identify yourself": "Identify yourself",
-        "{{developerRegistration}} - Registration completed": "{{developerRegistration}} - Registration completed"
+        "{{developerRegistration}} - Registration successfully concluded":  "{{developerRegistration}} - Registration successfully concluded"
     },
     "steps": {
         "Let’s start with your name": "Let’s start with your name",

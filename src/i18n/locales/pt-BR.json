@@ -17,7 +17,7 @@
         "Complete registration": "Concluir cadastro",
         "The field cannot be empty!": "O campo não pode ficar vazio!",
         "Identify yourself":  "Se identifique",
-        "{{developerRegistration}} - Registration completed": "{{developerRegistration}} - Cadastro concluído"
+        "{{developerRegistration}} - Registration successfully concluded": "{{developerRegistration}} - Cadastro concluído com sucesso"
     },
     "steps": {
         "Let’s start with your name": "Vamos começar com seu nome",
@@ -38,7 +38,7 @@
         "The given address is incomplete or not from GitHub!": "O endereço informado está incompleto ou não é do GitHub!",
         "Email format is invalid!": "Formato de email inválido!",
         "We're almost done completing your registration 🤩": "Falta pouco para terminarnos seu cadastro 🤩",
-        "Review the information below and, if everything is correct, click on 'Complete registration'.": "Reveja as informações abaixo e, se tudo estiver correto, clique em 'Completar registo'.",
+        "Review the information below and, if everything is correct, click on 'Complete registration'.": "Reveja as informações abaixo e, se tudo estiver correto, clique em 'Concluir cadastro'",
         "Full name": "Nome completo",
         "Experience level": "Nível de experiência",
         "Beginner (less than 2 years)": "Iniciante (menos de 2 anos)",

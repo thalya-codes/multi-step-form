@@ -10,7 +10,7 @@ export function StepContacts() {
    return (
     <div className="w-full">
       <WzStepContentHeader
-        title={translation("Cool {{developerFirstName}}, where do we find you?", { developerFirstName: firstName })}
+        title={translation("steps.Cool {{developerFirstName}}, where do we find you?", { developerFirstName: firstName })}
         subTitle={translation("steps.Fill in the fields below with your contacts")}
       />
 

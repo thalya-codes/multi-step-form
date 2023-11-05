@@ -9,7 +9,7 @@ export default function CompletedRegistration({ pageTitle ,setPageTitle }: IPage
     useEffect(() => { 
         setPageTitle(
             translation(
-                "{{developerRegistration}} - Registration completed", 
+                "general.{{developerRegistration}} - Registration successfully concluded", 
                 { developerRegistration: pageTitle }
             )
         );
