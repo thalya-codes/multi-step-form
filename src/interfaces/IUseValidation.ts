@@ -13,9 +13,3 @@ export interface IValidatePrevStepsParams {
     fieldNamesByStep: IFieldNamesByStep;
     formValues: IFormFields
 }
-
-export interface IFormErrors {
-    fullname: string | null;
-    email: string | null;
-    github: string | null;
-}
