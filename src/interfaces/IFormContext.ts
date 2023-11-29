@@ -1,11 +1,11 @@
 import { Dispatch, SetStateAction, ReactNode } from "react";
 import { IFormFields } from "./IFormFields";
-import { IFormErrors, IValidateFieldParams, IValidatePrevStepsParams } from "./IUseValidation";
+import { IValidateFieldParams, IValidatePrevStepsParams, TFieldNamesToValidate } from "./IUseValidation";
 
 export interface IFormContext {
     formValues: IFormFields;
     firstName: string;
-    errors: IFormErrors;
+    errors: Set<TFieldNamesToValidate>;
     activeStep: number;
     setFormValues: Dispatch<SetStateAction<IFormFields>>;
     setActiveStep: Dispatch<SetStateAction<number>>;
