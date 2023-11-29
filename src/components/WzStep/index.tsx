@@ -2,7 +2,6 @@ import HeadingGroup from "../HeadingGroup";
 import { IWzStepProps } from "../../interfaces/IWzStep";
 import { useFormContext } from "../../context/FormContext";
 import { useEffect, useState } from 'react';
-import { TFieldNamesToValidate } from "../../interfaces/IUseValidation";
 
 enum StepStatusClasses {
   active = "bg-emerald-400",
@@ -19,7 +18,6 @@ export function WzStep({
 }: IWzStepProps) {
   const { activeStep, setActiveStep, formValues, validatePrevSteps, errors } = useFormContext();
   const [stepStatus, setStepStatus] = useState<'active' | 'default' | 'invalid'>('default');
-  const [fieldsNameWithError, setFieldsNameWithError] = useState([] as TFieldNamesToValidate[]);
 
   const handleStepClick = (): void => {
     const prevFieldsAreValid: boolean | null = validatePrevSteps({ stepNumber, fieldNamesByStep, formValues });
@@ -33,10 +31,13 @@ export function WzStep({
   };
 
   const defineStepStatus = (): void => {
-    const hasError: boolean = ((stepNumber === 1 &&  fieldsNameWithError.some(field => field === "fullname"))) || (stepNumber === 3 &&  fieldsNameWithError.some(field => (field === "github" || field === "email")));
-    const isActive: boolean = activeStep === stepNumber && !hasError;
+    const step1IsInvalid: boolean = stepNumber === 1 && errors.has('fullname');
+    const step3IsInvalid: boolean = stepNumber === 3 && (errors.has('email') || errors.has('github'));
+    const hasInvalidFields: boolean = step1IsInvalid || step3IsInvalid;
+   
+    const isActive: boolean = activeStep === stepNumber && !hasInvalidFields;
 
-    if (hasError) { setStepStatus("invalid"); return };
+    if (hasInvalidFields) { setStepStatus("invalid"); return };
 
     if (isActive) { setStepStatus("active"); return };
    
@@ -44,17 +45,8 @@ export function WzStep({
   };
 
   useEffect(() => {
-    const fieldsWithError: TFieldNamesToValidate[] = Object.entries(errors).flatMap(([key, value]) => {
-      if (value !== '' && value !== null) return key;
-      else return null
-    }).filter(key => key !== null) as TFieldNamesToValidate[];
-
-    setFieldsNameWithError(fieldsWithError);
-  }, [errors])
-
-  useEffect(() => {
     defineStepStatus();
-  }, [activeStep, errors, fieldsNameWithError]);
+  }, [activeStep, errors]);
 
   return (
     <div
