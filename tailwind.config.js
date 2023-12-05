@@ -16,7 +16,11 @@ module.exports = {
       },
       screens: {
         "md": { "max": "890px" }
-      }
+      },
+      transitionProperty: {
+        left: 'left',
+        color: 'color'
+      },
     }
   }
 }
