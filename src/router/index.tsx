@@ -3,6 +3,7 @@ import Home from "../pages/Home";
 import CompletedRegistration from "../pages/CompletedRegistration";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { Layout } from "../layout";
 
 export function Router() {
     const { t: translation } = useTranslation();
@@ -15,11 +16,13 @@ export function Router() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Home />}/>
-                <Route 
-                    path="/completed-registration" 
-                    element={<CompletedRegistration pageTitle={pageTitle} setPageTitle={setPageTitle} />}
-                />
+                <Route element={<Layout />}>
+                    <Route path="/" element={<Home />}/>
+                    <Route 
+                        path="/completed-registration" 
+                        element={<CompletedRegistration pageTitle={pageTitle} setPageTitle={setPageTitle} />}
+                    />
+                </Route>
             </Routes>
         </BrowserRouter>
     )
