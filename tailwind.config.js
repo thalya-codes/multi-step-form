@@ -19,9 +19,11 @@ module.exports = {
       },
       transitionProperty: {
         left: 'left',
-        color: 'color'
+        color: 'color',
+        opacity: 'opacity',
       },
     }
   }
 }
+
 
