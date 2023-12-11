@@ -1,18 +1,15 @@
 import Typography from "../components/Typography";
 import { useEffect } from "react"; 
-import { IPageCompletedRegistrationProps } from "../interfaces/IPageCompletedRegistration";
 import { useTranslation } from "react-i18next";
 import { ContentTransition } from "../components/ContentTransition";
 
-export default function CompletedRegistration({ pageTitle ,setPageTitle }: IPageCompletedRegistrationProps) {
+export default function CompletedRegistration() {
     const { t: translation, i18n: { language } } = useTranslation();
     
     useEffect(() => { 
-        setPageTitle(
-            translation(
-                "general.{{developerRegistration}} - Registration successfully concluded", 
-                { developerRegistration: pageTitle }
-            )
+        document.title = translation(
+            "general.{{developerRegistration}} - Registration successfully concluded", 
+            { developerRegistration: translation("general.Developer Registration")}
         );
     }, [language]);
 

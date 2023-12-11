@@ -12,9 +12,10 @@ import HeadingGroup from "../components/HeadingGroup";
 import { StepSummary } from "../components/WzStepContent/StepSummary";
 import { useTranslation } from "react-i18next";
 import { ContentTransition } from "../components/ContentTransition";
+import { useEffect } from "react";
 
 export default function Home() {
-  const { t: translation } = useTranslation();
+  const { t: translation, i18n: { language } } = useTranslation();
 
   const steps: IWzStepData[] = [
     {title: translation('general.Personal'), subTitle: translation('general.Identify yourself') , stepNumber: 1,  icon: <ReactSVG src={ProfileIcon}/>, content: StepPersonalInfos},
@@ -22,6 +23,10 @@ export default function Home() {
     {title: translation("general.Contacts"), subTitle: translation("general.How to find you") , stepNumber: 3,  icon: <ReactSVG src={EmailIcon}/>, content: StepContacts},
     {title: translation("general.Summary"), subTitle: translation("general.Confirm your data") , stepNumber: 4,  icon: <ReactSVG src={CheckMark}/>, content: StepSummary}
   ];
+
+  useEffect(() => { 
+    document.title = translation("general.Developer Registration");
+  }, [language]);
 
   return (
     <ContentTransition className="flex flex-col gap-24 w-11/12 mt-5">
