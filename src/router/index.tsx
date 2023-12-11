@@ -1,29 +1,20 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import CompletedRegistration from "../pages/CompletedRegistration";
-import { useState, useEffect } from "react";
-import { useTranslation } from "react-i18next";
 import { Layout } from "../layout";
 
-export function Router() {
-    const { t: translation } = useTranslation();
-    const [pageTitle, setPageTitle] = useState<string>(translation("general.Developer Registration"));
-    
-    useEffect(() => { 
-        document.title = pageTitle;
-    }, [pageTitle]);
-    
+export function Router() {   
     return (
         <BrowserRouter>
             <Routes>
                 <Route element={<Layout />}>
-                    <Route path="/" element={<Home />}/>
+                    <Route path="/" element={<Home />} />
                     <Route 
                         path="/completed-registration" 
-                        element={<CompletedRegistration pageTitle={pageTitle} setPageTitle={setPageTitle} />}
+                        element={<CompletedRegistration />}
                     />
                 </Route>
             </Routes>
         </BrowserRouter>
-    )
-}
+    );
+};
