@@ -29,7 +29,7 @@ export default function Home() {
   }, [language]);
 
   return (
-    <ContentTransition className="flex flex-col gap-24 w-11/12 mt-5">
+    <ContentTransition className="flex flex-col gap-20 w-11/12 mt-5">
       <header>
         <HeadingGroup 
           title={{as: "h1", size: "xl", text: translation("general.Developer Registration")}}
