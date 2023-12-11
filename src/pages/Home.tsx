@@ -11,6 +11,7 @@ import CheckMark from "../assets/check-mark.svg";
 import HeadingGroup from "../components/HeadingGroup";
 import { StepSummary } from "../components/WzStepContent/StepSummary";
 import { useTranslation } from "react-i18next";
+import { ContentTransition } from "../components/ContentTransition";
 
 export default function Home() {
   const { t: translation } = useTranslation();
@@ -23,7 +24,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex flex-col gap-24 w-11/12 mt-5">
+    <ContentTransition className="flex flex-col gap-24 w-11/12 mt-5">
       <header>
         <HeadingGroup 
           title={{as: "h1", size: "xl", text: translation("general.Developer Registration")}}
@@ -34,6 +35,6 @@ export default function Home() {
       <form className="w-[90vw] justify-center items-center flex gap-10 md:w-[80vw] mb-10">
         <Wizard steps={steps} />
       </form>
-    </div>
+    </ContentTransition>
   );
 };
