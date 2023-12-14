@@ -1,7 +1,8 @@
 import HeadingGroup from "../HeadingGroup";
-import { IWzStepProps } from "../../interfaces/IWzStep";
+import { IWzStep } from "../../interfaces/IWzStep";
 import { useFormContext } from "../../context/FormContext";
 import { useEffect, useState } from 'react';
+import { TFieldNamesToValidate } from "../../interfaces/IUseValidation";
 
 enum StepStatusClasses {
   active = "bg-emerald-400",
@@ -14,20 +15,26 @@ export function WzStep({
   subTitle,
   stepNumber,
   icon,
-  fieldNamesByStep
-}: IWzStepProps) {
-  const { activeStep, setActiveStep, formValues, validatePrevSteps, errors } = useFormContext();
+}: IWzStep) {
+  const { activeStep, setActiveStep, formValues, errors, validateField } = useFormContext();
   const [stepStatus, setStepStatus] = useState<'active' | 'default' | 'invalid'>('default');
 
+  const validateFields = (): boolean => {
+    let isValid: boolean = validateField({ name: 'fullname', value: formValues.fullname });
+
+    if (stepNumber === 4) {
+      const fieldNames: TFieldNamesToValidate[] = ['fullname', 'email', 'github'];
+      isValid = fieldNames.map(name => validateField({ name, value: formValues[name] })).every(isValid => isValid);
+    };
+
+    return isValid;
+  };
+
   const handleStepClick = (): void => {
-    const prevFieldsAreValid: boolean | null = validatePrevSteps({ stepNumber, fieldNamesByStep, formValues });
+    const fieldsAreValid: boolean = validateFields();
     const jumpToPrevStep: boolean = stepNumber < activeStep;
 
-    if (jumpToPrevStep) setActiveStep(stepNumber);
-
-    else if (!prevFieldsAreValid) return;
-
-    setActiveStep(stepNumber);
+    if (jumpToPrevStep || fieldsAreValid) setActiveStep(stepNumber);
   };
 
   const defineStepStatus = (): void => {
