@@ -30,7 +30,7 @@ export function FormGroup({ label, inputType = "text", inputId, placeholder, nam
 
     if (fieldIsEmpty || fieldNameIsXp ) return;
     if (hadBlur || (!hadBlur && errors.has(name))) validateField({ value: formValues[name], name });
-  }, [hadBlur, formValues, errors]);
+  }, [hadBlur, formValues]);
 
   return (
     <div className="flex flex-col gap-2 w-10/12 md:w-full">
