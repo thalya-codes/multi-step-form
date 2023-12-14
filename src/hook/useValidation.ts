@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IValidateFieldParams, IValidatePrevStepsParams, TFieldNamesToValidate } from "../interfaces/IUseValidation";
+import { IValidateFieldParams, TFieldNamesToValidate } from "../interfaces/IUseValidation";
 
 export function useValidation() {
   const [errors, setErrors] = useState<Set<TFieldNamesToValidate>>(new Set());
@@ -35,14 +35,5 @@ export function useValidation() {
   }; 
 
 
-  const validatePrevSteps = ({ stepNumber, fieldNamesByStep, formValues }: IValidatePrevStepsParams): boolean | null => {
-    let isValid = validateField({ name: 'fullname', value: formValues['fullname'] });
-    const step3FieldNames = fieldNamesByStep[3] as TFieldNamesToValidate[];
-
-    if (stepNumber === 4) isValid = step3FieldNames.map(name => validateField({ name, value: formValues[name] })).every(isValid => isValid);
-      
-    return isValid || null;
-  };
-
-  return { validateField, errors, validatePrevSteps };
+  return { validateField, errors };
 };
