@@ -54,7 +54,6 @@ export function Wizard({ steps }: IWizardProps) {
                                 subTitle={subTitle} 
                                 icon={icon} 
                                 stepNumber={stepNumber} 
-                                fieldNamesByStep={fieldNamesByStep}
                             />
                         </li>                    
                     ))}

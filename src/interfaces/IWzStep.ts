@@ -7,10 +7,6 @@ export interface IWzStep {
     icon: any;
 }
 
-export interface IWzStepProps extends IWzStep {
-    fieldNamesByStep: IFieldNamesByStep 
-};
-
 export interface IWzStepData extends IWzStep {
     content: any;
 };
