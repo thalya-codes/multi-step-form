@@ -37,6 +37,11 @@
         title="React SVG"
         style="width: 50px; height: 50px;"
     />
+    <img 
+        src="https://miro.medium.com/v2/da:true/resize:fit:480/1*nh7oVcYarx92v4BDtCLmpQ.gif"
+        title="i18n"
+        style="width: 50px; height: 50px;"
+    />
 </div>
 
 ## Com esse projeto eu pude aprender/praticar
@@ -46,12 +51,14 @@
 - ☑️ Hooks em geral (useState, useEffect, useContext, custom hooks)
 - ☑️ Roteamento com React Router DOM
 - ☑️ Navegação linear e não linear
+- ☑️ Internacionalização de páginas
 
 ## Preview
 
 ### Desktop
 ![](/screenshots/desktop.png)
 ![](/screenshots/desktop-campo-vazio.png)
+![](/screenshots/desktop-ingles.png)
 
 ### Mobile
 ![](/screenshots/mobile.png)
