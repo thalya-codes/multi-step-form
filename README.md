@@ -61,12 +61,24 @@
 ## Preview
 
 ### Desktop
-![](/screenshots/desktop.png)
-![](/screenshots/desktop-campo-vazio.png)
-![](/screenshots/desktop-ingles.png)
+<img 
+    src="./screenshots/desktop.png" 
+    alt="Captura de tela da versão desktop da página em português"
+/>
+<img 
+    src="./screenshots/desktop-campo-vazio.png" 
+    alt="Captura de tela da versão desktop da página com campo vazio e mensagem erro em português"
+/>
+<img 
+    src="./screenshots/desktop-ingles.png"
+    alt="Captura de tela da versão desktop da página em inglês"
+/>
 
 ### Mobile
-![](/screenshots/mobile.png)
+<img 
+    src="./screenshots/mobile.png"
+    alt="Captura de tela da versão mobile da página em português"
+/>
 
 <br/>
 <hr/>
