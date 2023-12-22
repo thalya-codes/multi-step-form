@@ -9,36 +9,41 @@
 <div style="display: flex; gap: 30px; flex-wrap: wrap; align-items: center;">   
     <img 
         src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" 
-        alt="" 
+        alt="Logo da biblioteca Tailwind CSS" 
+        title="Tailwind CSS"
     >
     <img 
         src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" 
-        alt="" 
+        alt="Logo da biblioteca React" 
+        title="React"
     >
     <img 
         src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white" 
         alt="" 
+        title="Logo da biblioteca React Router DOM"
         style="width: 140px; height: 30px;"
     >        
     <img 
         src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" 
-        alt="" 
+        alt="Logo da linguagem de programação TypeScript" 
+        title="TypeScript"
         style="width: 140px; height: 30px;"
     />
     <img 
         src="https://cdn-icons-png.flaticon.com/512/4158/4158206.png?ga=GA1.1.636790821.1694547778" 
-        alt="" 
+        alt="Logo da biblioteca Canvas Conffeti" 
         title="Canvas Conffeti"
         style="width: 50px; height: 50px;"
     />
     <img 
         src="https://cdn.icon-icons.com/icons2/698/PNG/512/svg_file_extension_name_document_icon-icons.com_61614.png" 
-        alt="" 
+        alt="Logo da biblioteca React SVG" 
         title="React SVG"
         style="width: 50px; height: 50px;"
     />
     <img 
         src="https://miro.medium.com/v2/da:true/resize:fit:480/1*nh7oVcYarx92v4BDtCLmpQ.gif"
+        alt="Logo da biblioteca i18n"
         title="i18n"
         style="width: 50px; height: 50px;"
     />
