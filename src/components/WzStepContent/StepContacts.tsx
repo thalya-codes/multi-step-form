@@ -26,6 +26,7 @@ export function StepContacts() {
           label={translation("steps.What is your GitHub?")}
           inputId="form-group--github"
           name="github"
+          placeholder={translation("steps.www.github.com/your-username")}
         />
       </div>
     </div>
